@@ -60,6 +60,7 @@ RDEPENDS_packagegroup-virtcluster-tools = "\
     python \
     rpm \
     sqlite3 \
+    binutils \
     "
 
 RDEPENDS_packagegroup-virtcluster-apps = ""
