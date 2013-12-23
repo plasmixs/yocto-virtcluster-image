@@ -62,12 +62,16 @@ RDEPENDS_packagegroup-virtcluster-connectivity = "\
 RDEPENDS_packagegroup-virtcluster-tools = "\
     bash \
     python \
+    python-json \
+    python-subprocess \
     rpm \
     sqlite3 \
     binutils \
     "
 
-RDEPENDS_packagegroup-virtcluster-apps = ""
+RDEPENDS_packagegroup-virtcluster-apps = "\
+                                       libjson\
+                                         "
 
 RRECOMMENDS_packagegroup-virtcluster-apps = ""
 
