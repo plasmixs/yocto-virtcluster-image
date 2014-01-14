@@ -2,7 +2,10 @@ require virtcluster-core.bb
 
 DESCRIPTION = "virtcluster image with debug tools and symbols"
 
-IMAGE_FEATURES += "dev-pkgs dbg-pkgs tools-sdk tools-debug tools-profile debug-tweaks"
+IMAGE_FEATURES += "tools-debug debug-tweaks"
+
+#Extra features:
+#dev-pkgs dbg-pkgs tools-sdk tools-profile
 
 IMAGE_INSTALL_append = " kernel-dev"
 
