@@ -1,0 +1,4 @@
+kconf hardware armvm.cfg
+
+kconf hardware armvm-user-config.cfg
+include armvm-user-patches.scc
