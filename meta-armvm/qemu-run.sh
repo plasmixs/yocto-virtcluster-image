@@ -1,0 +1,1 @@
+qemu-system-arm -M versatilepb -kernel tmp/deploy/images/armvm/zImage-armvm.bin -hda tmp/deploy/images/armvm/virtcluster-sdk-armvm.ext3 --append "root=/dev/sda rw console=tty console=ttyAMA0,115200 mem=128M highres=off"
