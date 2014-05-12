@@ -1,7 +1,0 @@
-define KMACHINE bb
-define KTYPE tiny
-define KARCH arm
-
-include ktypes/tiny/tiny.scc
-
-include bb.scc

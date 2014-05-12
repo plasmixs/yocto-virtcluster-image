@@ -1,0 +1,5 @@
+kconf hardware bbb.cfg
+include features/usb-net/usb-net.scc
+
+kconf hardware bbb-user-config.cfg
+include bbb-user-patches.scc
