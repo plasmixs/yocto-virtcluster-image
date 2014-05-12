@@ -1,6 +1,6 @@
 #!/bin/sh
 
-IMAGE_FILE=bb.img
+IMAGE_FILE=bbb.img
 BUILD_DIR=/Work/Contents/BuildArea/Yocto/Build/bb/tmp/deploy/images/a/
 
 #Create an empty img file of size 500*1 MiB
@@ -28,8 +28,8 @@ cp $BUILD_DIR/MLO tmpmnt/boot/
 cp $BUILD_DIR/u-boot.img tmpmnt/boot/
 
 #copy rootfs and modules.
-tar xvfj $BUILD_DIR/virtcluster-sdk-bb.tar.bz2 -C tmpmnt/rootfs/
-tar xvfz $BUILD_DIR/modules-bb.tgz -C tmpmnt/rootfs/
+tar xvfj $BUILD_DIR/virtcluster-sdk-bbb.tar.bz2 -C tmpmnt/rootfs/
+tar xvfz $BUILD_DIR/modules-bbb.tgz -C tmpmnt/rootfs/
 
 #cp $BUILD_DIR/zImage tmpmnt/rootfs/boot/
 cp $BUILD_DIR/uImage tmpmnt/rootfs/boot/
@@ -44,4 +44,4 @@ ls tmpmnt/boot
 umount tmpmnt/rootfs 
 umount tmpmnt/boot 
 #This will delete the loop mounts dev mappers.
-kpartx -dv bb.img 
+kpartx -dv bbb.img 
