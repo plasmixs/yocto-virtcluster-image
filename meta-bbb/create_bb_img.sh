@@ -1,7 +1,7 @@
 #!/bin/sh
 
 IMAGE_FILE=bbb.img
-BUILD_DIR=/Work/Contents/BuildArea/Yocto/Build/bb/tmp/deploy/images/a/
+BUILD_DIR=/Work/Contents/BuildArea/Yocto/Build/bbb/tmp/deploy/images/a/
 
 #Create an empty img file of size 500*1 MiB
 dd if=/dev/zero of=$IMAGE_FILE bs=1M count=500
@@ -17,7 +17,7 @@ kpartx -av $IMAGE_FILE
 
 #Commands to format and create necessart partitions.
 mkfs.vfat -F 16 /dev/mapper/loop0p1 -n boot
-mkfs.ext4 /dev/mapper/loop0p2 -L rootfs
+mkfs.ext3 /dev/mapper/loop0p2 -L rootfs
 mkdir -p tmpmnt/boot
 mkdir -p tmpmnt/rootfs
 mount /dev/mapper/loop0p1 tmpmnt/boot/
@@ -31,11 +31,11 @@ cp $BUILD_DIR/u-boot.img tmpmnt/boot/
 tar xvfj $BUILD_DIR/virtcluster-sdk-bbb.tar.bz2 -C tmpmnt/rootfs/
 tar xvfz $BUILD_DIR/modules-bbb.tgz -C tmpmnt/rootfs/
 
-#cp $BUILD_DIR/zImage tmpmnt/rootfs/boot/
+mkimage -A arm -O linux -T kernel -C none -a 0x80008000 -e 0x80008000 -n "Linux kernel" -d ./zImage uImage
 cp $BUILD_DIR/uImage tmpmnt/rootfs/boot/
+
 mkdir -p tmpmnt/rootfs/boot/dtbs
 cp $BUILD_DIR/zImage-omap3-beagle*.dtb tmpmnt/rootfs/boot/dtbs/
-#cp $BUILD_DIR/zImage-omap3-beagle*.dtb tmpmnt/rootfs/boot/
 
 #Done with all transfers. unmount fs.
 sync
