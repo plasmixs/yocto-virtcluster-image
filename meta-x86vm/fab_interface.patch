@@ -1,0 +1,13 @@
+diff --git a/meta-x86vm/recipes-core/init-ifupdown/init-ifupdown/x86vm/interfaces b/meta-x86vm/recipes-core/init-ifupdown/init-ifupdown/x86vm/interfaces
+index d7409f7..1729e10 100644
+--- a/meta-x86vm/recipes-core/init-ifupdown/init-ifupdown/x86vm/interfaces
++++ b/meta-x86vm/recipes-core/init-ifupdown/init-ifupdown/x86vm/interfaces
+@@ -3,3 +3,8 @@
+ # The loopback interface
+ auto lo
+ iface lo inet loopback
++
++#virtcluster - addition
++#Bringup eth0 for the fabric interface.
++auto eth0
++iface eth0 inet dhcp
